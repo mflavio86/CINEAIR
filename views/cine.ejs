@@ -1,0 +1,22 @@
+<% include partials/header %>
+    <div class="container">    
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="head" >PR-GVI<span style="color:#232F34;"> CINE</span></h1>
+            </div>
+        </div>
+         <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+        <% movies.forEach(function(movie){ %>
+        <div class="col-3" >
+            <div class="card m-2 mb-4">
+                <img src="<%= movie.image %>" class="card-img" style="height:20rem;" >
+        
+            </div>
+        </div>
+        <% }); %>
+        </div>
+   
+    <div class="card-footer text-right footer"> A </div> 
+  <!-- container END Div -->
+    </div>
+<% include partials/footer %>

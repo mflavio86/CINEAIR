@@ -1,0 +1,15 @@
+<% include partials/header %>
+<% resultBody.Search.forEach(function(movies){ %>
+    <ul>
+        <li>
+           
+            <form action="/cine" method="POST">
+               <img src="<%= movies.Poster %>">
+               <input type="text" value="<%= movies.Poster %>" name="posterURL" hidden>
+               <button>Add</button>
+            </form>
+        </li>
+    </ul>
+<% }); %>
+
+<% include partials/footer %>
