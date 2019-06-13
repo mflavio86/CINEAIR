@@ -7,7 +7,20 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="/main.css">
+    
+    <script type="text/javascript">
+
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.innerText == 'A')
+          e.innerText = 'B';
+       else
+          e.innerText = 'A';
+    }
+
+</script>
     
     <title>AirCraft Cinema</title>
   </head>
@@ -17,6 +30,9 @@
       <form class= "delete-form" action="/?_method=DELETE" method="POST">
         <input class="btn btn-danger" type="submit" value="Delete">
       </form>
+      
+       <a href="#" class="btn btn-success" onclick="toggle_visibility('side');">Click here to toggle footer side</a>
+     
       <form class="form-inline" action="/new" method="POST">
         <input class="form-control mr-sm-2" type="search" placeholder="Search for a poster" aria-label="Search" name="search" required>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

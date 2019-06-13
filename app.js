@@ -13,6 +13,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+
+
 app.get("/", function(req, res) {
     Movies.find({}, function(err, movies) {
         if (err) {
@@ -20,6 +22,7 @@ app.get("/", function(req, res) {
         }
         else {
             console.log(movies);
+            
             res.render("cine", { movies: movies });
         }
     });
