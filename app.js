@@ -7,7 +7,16 @@ let express = require("express"),
     Movies = require("./models/movies");
 
 
-mongoose.connect("mongodb://localhost/db_cineAir", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost/db_cineAir", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://cineair:n366ts86@cluster0-ib2qh.mongodb.net/test?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log('connected to DB..');
+}).catch(err => {
+    console.log('ERROR:', err.message);
+});
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
