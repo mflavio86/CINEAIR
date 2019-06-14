@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
         }
         else {
             console.log(movies);
-            
+
             res.render("cine", { movies: movies });
         }
     });
@@ -41,7 +41,7 @@ app.post("/new", function(req, res) {
     request(url, function(error, response, body) {
         let resp = JSON.parse(response.body);
         if (resp.Response === "False") {
-            
+
             return res.redirect("/");
         }
         else {
@@ -53,6 +53,7 @@ app.post("/new", function(req, res) {
     });
 });
 app.post("/cine", function(req, res) {
+
     Movies.create({
         image: req.body.posterURL
     }, function(err, movie) {
@@ -67,17 +68,29 @@ app.post("/cine", function(req, res) {
 
 //Destroy Route
 app.delete("/", function(req, res) {
-  Movies.deleteMany({}, function(err) {
-    if (err) {
-      console.log(err);
+
+    if (req.body.del == "Delete") {
+        Movies.deleteMany({}, function(err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect("/");
+            }
+        });
     }
     else {
-      res.redirect("/");
+        Movies.findOneAndDelete({ _id: req.body.movieID }, function(err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect("/");
+            }
+        });
     }
-  });
+
 });
-
-
 
 
 app.listen(process.env.PORT, process.env.IP, function() {

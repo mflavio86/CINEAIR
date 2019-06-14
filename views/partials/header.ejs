@@ -9,18 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     
     <link rel="stylesheet" href="/main.css">
-    
-    <script type="text/javascript">
-
-    function toggle_visibility(id) {
-       var e = document.getElementById(id);
-       if(e.innerText == 'A')
-          e.innerText = 'B';
-       else
-          e.innerText = 'A';
-    }
-
-</script>
+    <script type="text/javascript" src="/script.js"> </script>
     
     <title>AirCraft Cinema</title>
   </head>
@@ -28,7 +17,7 @@
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand">Aircraft Cine</a>
       <form class= "delete-form" action="/?_method=DELETE" method="POST">
-        <input class="btn btn-danger" type="submit" value="Delete">
+        <input class="btn btn-danger" type="submit" name="del" value="Delete">
       </form>
       
        <a href="#" class="btn btn-success" onclick="toggle_visibility('side');">Click here to toggle footer side</a>

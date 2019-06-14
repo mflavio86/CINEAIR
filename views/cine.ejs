@@ -8,10 +8,12 @@
          <div class="row text-center" style="display:flex; flex-wrap:wrap;">
         <% movies.forEach(function(movie){ %>
         <div class="col-3" >
-            <div class="card m-2 mb-4">
-                <img src="<%= movie.image %>" class="card-img" style="height:20rem;" >
-        
-            </div>
+            <form action="/?_method=DELETE" method="POST" class="card m-2 mb-4" id="<%= movie.id %>" >
+               <a href="javascript:{}" onclick="document.getElementById('<%= movie.id %>').submit(); return false;">
+                <input type="text" value="<%= movie.id %>" name="movieID" hidden>
+                <img onmouseover="imgADD('<%= movie.id %>')" onmouseout="imgRemove('<%= movie.id %>')" src="<%= movie.image %>" class="card-img" style="height:20rem;" id="<%= movie.id %>" > 
+                </a>
+            </form>
         </div>
         <% }); %>
         </div>
